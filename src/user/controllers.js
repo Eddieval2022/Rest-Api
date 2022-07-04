@@ -18,3 +18,21 @@ exports.findUsers = async (req, res) => {
     res.send({ error });
   }
 };
+exports.deleteUser = async (req, res) => {
+  const removeUser = await User.deleteOne(req.body);
+  res.send({ user: removeUser });
+  try {
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+};
+exports.deleteUser = async (req, res) => {
+  const delUser = await User.deleteOne(req.body);
+  res.send({ user: delUser });
+  try {
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+};
