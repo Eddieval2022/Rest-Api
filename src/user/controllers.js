@@ -28,3 +28,13 @@ exports.deleteUser = async (req, res) => {
     res.send({ error });
   }
 };
+
+exports.updateUser = async (req, res) => {
+  const editUser = await User.updateOne(req.body);
+  res.send({ user: editUser });
+  try {
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
+};
