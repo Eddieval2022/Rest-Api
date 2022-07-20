@@ -13,7 +13,7 @@ const userRouter = Router(); // create a router that can have end points added t
 
 userRouter.post("/user", hashPass, signUp); //Defining a post request on /user path,
 // that calls the signup controller. This creates an end point.
-userRouter.get("/user", findUsers);
+userRouter.get("/users", findUsers);
 userRouter.delete("/user/:username", deleteUser);
 userRouter.patch("/user", updateUser);
 userRouter.get("/finduser/:username", findUser);

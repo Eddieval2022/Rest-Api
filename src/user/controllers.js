@@ -1,16 +1,15 @@
-
 const jwt = require("jsonwebtoken");
 const User = require("./model");
 
 exports.signUp = async (req, res) => {
   try {
     const newUser = await User.create(req.body); //req.body contains key value pairs that match the user model
-    const token = jwt.sign({id: newUser._id},"process.env.SECRET") // sign method creates a token with object payload hidden
+    const token = jwt.sign({ id: newUser._id }, process.env.SECRET); // sign method creates a token with object payload hidden
     if (!newUser) {
       throw new Error("User not found");
-    } else {console.log(token);
+    } else {
+      console.log(token);
       res.send({ user: newUser, token });
-      
     }
   } catch (error) {
     console.log(error);
@@ -68,13 +67,13 @@ exports.login = async (req, res) => {
     // const user = await User.find({
     //   username: req.body.username,
     //   password: req.body.password
-    // 
-    console.log("in login" + req.user )
+    //
+    console.log("in login" + req.user);
     if (!req.user) {
       throw new Error("Incorrect username or Password");
     } else {
       res.send({ user: req.user });
-      console.log("login successful")
+      console.log("login successful");
     }
   } catch (error) {
     console.log(error);
